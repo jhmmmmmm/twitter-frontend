@@ -1,5 +1,5 @@
 import './loginIndex.css';
-import { Button, Input, Form, PasscodeInput, NumberKeyboard, Dialog } from 'antd-mobile';
+import { Button, Input, Form, Dialog } from 'antd-mobile';
 const initialValues = {
   username: 'hahaha',
   password: 'lalal'
