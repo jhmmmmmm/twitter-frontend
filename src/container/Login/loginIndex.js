@@ -2,18 +2,26 @@ import './loginIndex.css';
 import {
   Button, Input, Form, Dialog,
 } from 'antd-mobile';
+import { loginService } from '../../services/login';
 
 const initialValues = {
-  username: 'hahaha',
-  password: 'lalal',
+  username: '12345',
+  password: '12345',
 };
 
 const Login = () => {
   const [form] = Form.useForm();
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const values = form.getFieldsValue();
+    const res = await loginService(values.username, values.password);
+    if (res.length > 0) {
+      Dialog.alert({
+        content: 'login success',
+      });
+      return;
+    }
     Dialog.alert({
-      content: <pre>{JSON.stringify(values, null, 2)}</pre>,
+      content: 'login failed',
     });
   };
 
