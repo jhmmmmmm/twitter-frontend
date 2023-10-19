@@ -3,11 +3,12 @@
 .birthdayInput {
   composes: input from '../../common.module.css';
   margin-top: 10px;
+  height: 60px !important;
 }
 
 .birthdayPlaceholder {
   height: 30px;
-  line-height: 30px;
+  line-height: 40px;
   font-size: 15px;
 }
 
@@ -16,6 +17,7 @@
 }
 
 .datepickerIcon {
+  height: 20px;
   float: right;
 }
 
