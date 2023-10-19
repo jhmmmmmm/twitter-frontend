@@ -43,3 +43,22 @@
   width: 60%;
   height: 40px;
 }
+
+.formContainer {
+  :global(.adm-list-item) {
+    background: none;
+    padding: 0;
+    line-height: 1;
+  }
+  :global(.adm-list-item-content) {
+    border: none;
+    padding: 0;
+  }
+  :global(.adm-list-body) {
+    background: none;
+    border: none;
+  }
+  :global(.adm-list-item-content-main) {
+    padding-bottom: 0;
+  }
+}
