@@ -1,0 +1,16 @@
+@value tblue #1d9bf0;
+
+.birthdayInput {
+  composes: input from '../../common.module.css';
+  margin-top: 10px;
+}
+
+.birthdayPlaceholder {
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+}
+
+.birthdayTitle {
+  color: tblue;
+}

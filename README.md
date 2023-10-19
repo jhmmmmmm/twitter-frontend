@@ -15,3 +15,6 @@ service: const getUser = () = > get('/user', parameters).then((res) => {
 
 ## web service in backend
 json-server
+
+
+## 5 steps to
