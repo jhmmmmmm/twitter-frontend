@@ -15,3 +15,8 @@ service: const getUser = () = > get('/user', parameters).then((res) => {
 
 ## web service in backend
 json-server
+
+
+## config info
+- craco.config.js: config webpack
+- jsconfig.json: js related config file for vscode

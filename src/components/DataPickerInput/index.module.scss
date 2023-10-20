@@ -1,0 +1,23 @@
+$tblue: #1d9bf0;
+
+.birthdayInput {
+  composes: input from '../../common.module.scss';
+  margin-top: 10px;
+  height: 60px !important;
+}
+
+.birthdayPlaceholder {
+  height: 30px;
+  line-height: 40px;
+  font-size: 15px;
+}
+
+.birthdayTitle {
+  color: $tblue;
+}
+
+.datepickerIcon {
+  height: 20px;
+  float: right;
+}
+
