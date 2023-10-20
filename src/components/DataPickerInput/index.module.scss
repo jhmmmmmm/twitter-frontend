@@ -1,7 +1,7 @@
-@value tblue #1d9bf0;
+$tblue: #1d9bf0;
 
 .birthdayInput {
-  composes: input from '../../common.module.css';
+  composes: input from '../../common.module.scss';
   margin-top: 10px;
   height: 60px !important;
 }
@@ -13,7 +13,7 @@
 }
 
 .birthdayTitle {
-  color: tblue;
+  color: $tblue;
 }
 
 .datepickerIcon {

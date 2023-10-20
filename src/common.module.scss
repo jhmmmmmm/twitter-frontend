@@ -1,5 +1,8 @@
+$tgray: #cfd9de;
+$tblue: #1d9bf0;
+
 .input {
-  border: solid 1px #cfd9de;
+  border: solid 1px $tgray;
   border-radius: 5px;
   height: 53px;
   padding: 5px 10px;

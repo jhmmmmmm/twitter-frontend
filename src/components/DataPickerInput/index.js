@@ -1,20 +1,20 @@
 import { DatePicker } from 'antd-mobile';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
-import style from './index.module.css';
+import style from './index.module.scss';
 import datepickerIcon from '../../assets/date.svg';
 
-const DatePickerInput = ({
+const DatePickerInput = React.forwardRef(({
   value,
   onChange,
-}) => {
+}, ref) => {
   const [visible, setVisible] = useState(false);
   const onClickDatePicker = () => {
     setVisible(true);
   };
   return (
-    <div>
+    <div ref={ref}>
       <DatePicker
         title="Select time"
         visible={visible}
@@ -34,11 +34,16 @@ const DatePickerInput = ({
       </div>
     </div>
   );
-};
+});
 
 DatePickerInput.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+DatePickerInput.defaultProps = {
+  value: '',
+  onChange: () => {},
 };
 
 export default DatePickerInput;
