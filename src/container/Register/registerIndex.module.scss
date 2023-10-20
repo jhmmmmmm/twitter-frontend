@@ -27,23 +27,6 @@
   margin-top: 25px;
 }
 
-.footer {
-  position: fixed;
-  bottom: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.footerButton {
-  margin: 0 auto;
-  border-radius: 50px;
-  background-color: #868a8c;
-  color: white;
-  font-size: 16px;
-  width: 60%;
-  height: 40px;
-}
-
 .formContainer {
   :global(.adm-list-item) {
     background: none;
@@ -61,4 +44,26 @@
   :global(.adm-list-item-content-main) {
     padding-bottom: 0;
   }
+}
+
+.footer{
+  position: fixed;
+  text-align: center;
+  bottom: 20px;
+  width: 100%;
+}
+
+.footerButtonDisabled {
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: #868a8c;
+  color: white;
+  font-size: 16px;
+  width: 60%;
+  height: 40px;
+}
+
+.footerButton {
+  composes: footerButtonDisabled;
+  background-color: #000;
 }
