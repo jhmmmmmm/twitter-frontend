@@ -1,111 +1,55 @@
-/* eslint-disable max-len */
-import { useState } from 'react';
-import { Form } from 'antd-mobile';
 import Header from '@components/Header';
-import TInput from '@components/TInput';
-import DataPickerInput from '@components/DataPickerInput';
-import Footer from './components/Footer';
+import { useState } from 'react';
+import { registeUser } from '@services/register';
+import Show from '@components/Show';
+import { Toast } from 'antd-mobile';
+import FirstStep from './components/FirstStep';
+import SecondStep from './components/SecondStep';
 
-import style from './registerIndex.module.scss';
-
-const ACCOUNT_TYPE = {
-  TEL: 0,
-  EMAIL: 1,
+const STEP = {
+  ONE: 1,
+  TWO: 2,
 };
 
 const Register = () => {
-  const [form] = Form.useForm();
-  const [formData] = useState({
-    name: '',
-    tel: '',
-    email: '',
-    birthday: '',
-  });
+  const [step, setStep] = useState(STEP.ONE);
+  const [userInfo, setUserInfo] = useState({});
 
-  const [accountType, setAccountType] = useState(ACCOUNT_TYPE.TEL);
-  const [footerButtonDisabled, setFooterButtonDisabled] = useState(true);
+  const gotoNextStepHandler = (data) => {
+    setUserInfo(data);
+    setStep(STEP.TWO);
+  };
 
-  const onAccountTypeChange = () => {
-    if (accountType === ACCOUNT_TYPE.TEL) {
-      setAccountType(ACCOUNT_TYPE.EMAIL);
+  const confirmRegisterHandler = async (password) => {
+    const res = await registeUser({
+      password,
+      userInfo,
+    });
+    if (res.success) {
+      Toast.show('login success');
       return;
     }
-    setAccountType(ACCOUNT_TYPE.TEL);
+    Toast.show('login failed');
+    console.log(res);
   };
 
-  const onClickNextStep = async () => {
-    const validate = await form.validateFields();
-    if (validate) {
-      console.log(validate);
-    }
-  };
-
-  const onValuesChange = async () => {
-    try {
-      const validate = await form.validateFields();
-      if (validate) {
-        setFooterButtonDisabled(false);
-      }
-    } catch (e) {
-      if (e.errorFields.length === 0) {
-        setFooterButtonDisabled(false);
-        return;
-      }
-      setFooterButtonDisabled(true);
-    }
+  const onClickClose = () => {
+    setStep(STEP.ONE);
   };
 
   return (
     <div>
-      <div className={style.form}>
-        <Header />
-        <div className={style.formTitle}>Create your account</div>
-        <Form form={form} initialValues={formData} onValuesChange={onValuesChange} className={style.formContainer}>
-          <Form.Item name="name" rules={[{ required: true, message: 'Name cannot be null' }]}>
-            <TInput length={50} label="Name" />
-          </Form.Item>
-          {accountType === ACCOUNT_TYPE.TEL && (
-          <Form.Item
-            name="tel"
-            rules={[
-              {
-                required: true,
-                message: 'Phone number cannot be null',
-              },
-              {
-                pattern: /^(?:\+?1[-.●]?)?\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$/,
-                message: 'Invalid U.S. phone number format',
-              },
-            ]}
-          >
-            <TInput length={10} label="Phone" />
-          </Form.Item>
-          )}
-          {accountType === ACCOUNT_TYPE.EMAIL && (
-          <Form.Item
-            name="email"
-            rules={[
-              { required: true, message: 'Email cannot be null' },
-              {
-                pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-                message: 'Invalid email format',
-              },
-            ]}
-          >
-            <TInput label="Email" />
-          </Form.Item>
-          )}
-          <span className={style.changeTypeButton} onClick={onAccountTypeChange}>
-            {accountType === ACCOUNT_TYPE.EMAIL ? 'Use phone number instead' : 'Use email instead'}
-          </span>
-          <div className={style.birthday}>Date of birth</div>
-          <div>This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</div>
-          <Form.Item name="birthday">
-            <DataPickerInput />
-          </Form.Item>
-        </Form>
-      </div>
-      <Footer onClickNextStep={onClickNextStep} disabled={footerButtonDisabled} />
+      <Header onClickClose={onClickClose} />
+      <Show visible={step === STEP.ONE}>
+        <FirstStep gotoNextStepHandler={gotoNextStepHandler} />
+      </Show>
+
+      <Show visible={step === STEP.TWO}>
+        <SecondStep
+          userInfo={userInfo}
+          confirmRegisterHandler={confirmRegisterHandler}
+        />
+      </Show>
     </div>
   );
 };

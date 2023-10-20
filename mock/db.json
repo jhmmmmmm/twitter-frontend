@@ -1,16 +1,76 @@
 {
   "user": [
     {
-      "username": "12345",
-      "password": "12345",
-      "age": "23",
-      "adddress": "Pittsburgh"
+      "password": "123",
+      "userInfo": {
+        "name": "hhh",
+        "tel": "1111111111",
+        "birthday": "20231020"
+      },
+      "id": 1
     },
     {
-      "username": "54321",
-      "password": "54321",
-      "age": "32",
-      "adddress": "Pittsburgh"
+      "password": "12",
+      "userInfo": {
+        "username": "hhh",
+        "tel": "1231231311",
+        "birthday": "20231020"
+      },
+      "id": 2
+    },
+    {
+      "password": "222222222",
+      "userInfo": {
+        "username": "123",
+        "tel": "1111111111",
+        "birthday": "20231020"
+      },
+      "id": 3
+    },
+    {
+      "password": "121",
+      "userInfo": {
+        "username": "1213",
+        "tel": "1111111111",
+        "birthday": "20231020"
+      },
+      "id": 4
+    },
+    {
+      "password": "3333",
+      "userInfo": {
+        "username": "1213",
+        "tel": "1111111111",
+        "birthday": "20231020"
+      },
+      "id": 5
+    },
+    {
+      "password": "111",
+      "userInfo": {
+        "username": "hah",
+        "tel": "1212121211",
+        "birthday": "20231018"
+      },
+      "id": 6
+    },
+    {
+      "password": "gj",
+      "userInfo": {
+        "username": "hh",
+        "tel": "1321321211",
+        "birthday": "20231020"
+      },
+      "id": 7
+    },
+    {
+      "password": "78",
+      "userInfo": {
+        "username": "hjh",
+        "tel": "8888888888",
+        "birthday": "20231020"
+      },
+      "id": 8
     }
   ]
 }

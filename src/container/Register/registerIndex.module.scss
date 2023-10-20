@@ -1,4 +1,4 @@
-@value tblue #1d9bf0;
+@import "../../common.module.scss";
 
 .form {
   margin: 0 30px;
@@ -66,4 +66,30 @@
 .footerButton {
   composes: footerButtonDisabled;
   background-color: #000;
+}
+
+.showLabelContainer {
+  border: solid 1px $tgray;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.showLabel {
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  :global(span) {
+    color: #868a8c,
+  }
+}
+
+.label {
+  font-size: 18px;
+  margin: 30px 0 10px 0;
+}
+
+.showTip {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
 }
