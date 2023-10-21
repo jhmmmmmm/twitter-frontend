@@ -1,4 +1,3 @@
-import Header from '@components/Header';
 import { useState } from 'react';
 import { registeUser } from '@services/register';
 import Show from '@components/Show';
@@ -33,13 +32,12 @@ const Register = () => {
     console.log(res);
   };
 
-  const onClickClose = () => {
-    setStep(STEP.ONE);
-  };
+  // const onClickClose = () => {
+  //   setStep(STEP.ONE);
+  // };
 
   return (
     <div>
-      <Header onClickClose={onClickClose} />
       <Show visible={step === STEP.ONE}>
         <FirstStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>

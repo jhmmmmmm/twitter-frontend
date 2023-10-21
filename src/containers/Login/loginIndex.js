@@ -1,9 +1,9 @@
 import {
   Form, Dialog,
 } from 'antd-mobile';
-import Header from '@components/Header';
 import TInput from '@components/TInput';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../Register/components/Footer';
 import style from './index.module.scss';
 import { login } from '../../services/login';
@@ -45,7 +45,6 @@ const Login = () => {
 
   return (
     <>
-      <Header />
       <div className={style.login}>
         <div className={style.formTitle}>Login Twitter</div>
         <Form
@@ -73,7 +72,9 @@ const Login = () => {
         <div className={style.gotoRegister}>
           No account yet?
           {' '}
-          <a href="/">Register</a>
+          <Link to="/register">
+            Cancel
+          </Link>
         </div>
       </div>
       <Footer onClickNextStep={onSubmit} disabled={nextDisabled} label="Next" />
