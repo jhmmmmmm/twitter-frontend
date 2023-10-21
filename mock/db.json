@@ -1,15 +1,6 @@
 {
   "user": [
     {
-      "password": "123",
-      "userInfo": {
-        "name": "hhh",
-        "tel": "1111111111",
-        "birthday": "20231020"
-      },
-      "id": 1
-    },
-    {
       "password": "12",
       "userInfo": {
         "username": "hhh",
