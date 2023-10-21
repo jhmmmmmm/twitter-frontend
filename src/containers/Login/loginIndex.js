@@ -2,8 +2,9 @@ import {
   Form, Dialog,
 } from 'antd-mobile';
 import TInput from '@components/TInput';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppContext } from '@utils/context';
 import Footer from '../Register/components/Footer';
 import style from './index.module.scss';
 import { login } from '../../services/login';
@@ -11,6 +12,13 @@ import { login } from '../../services/login';
 const Login = () => {
   const [form] = Form.useForm();
   const [nextDisabled, setNextDisabled] = useState(true);
+
+  const [, setStore] = useAppContext();
+  useEffect(() => {
+    setStore({
+      closeHeaderHandler: null,
+    });
+  }, []);
 
   const onValuesChange = async () => {
     try {
@@ -73,7 +81,7 @@ const Login = () => {
           No account yet?
           {' '}
           <Link to="/register">
-            Cancel
+            Register
           </Link>
         </div>
       </div>

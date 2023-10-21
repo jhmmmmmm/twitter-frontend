@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { registeUser } from '@services/register';
 import Show from '@components/Show';
 import { Toast } from 'antd-mobile';
+import { useAppContext } from '@utils/context';
+import { useNavigate } from 'react-router-dom';
 import FirstStep from './components/FirstStep';
 import SecondStep from './components/SecondStep';
 
@@ -13,6 +15,21 @@ const STEP = {
 const Register = () => {
   const [step, setStep] = useState(STEP.ONE);
   const [userInfo, setUserInfo] = useState({});
+
+  const [, setStore] = useAppContext();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (step === STEP.ONE) {
+      setStore({
+        closeHeaderHandler: () => navigate('/login'),
+      });
+    }
+    if (step === STEP.TWO) {
+      setStore({
+        closeHeaderHandler: () => setStep(STEP.ONE),
+      });
+    }
+  }, [step]);
 
   const gotoNextStepHandler = (data) => {
     setUserInfo(data);
@@ -32,17 +49,13 @@ const Register = () => {
     console.log(res);
   };
 
-  // const onClickClose = () => {
-  //   setStep(STEP.ONE);
-  // };
-
   return (
     <div>
       <Show visible={step === STEP.ONE}>
         <FirstStep gotoNextStepHandler={gotoNextStepHandler} />
       </Show>
 
-      <Show visible={step === STEP.TWO}>
+      <Show visible={step === STEP.TWO} isMount>
         <SecondStep
           userInfo={userInfo}
           confirmRegisterHandler={confirmRegisterHandler}
