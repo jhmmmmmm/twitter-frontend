@@ -1,15 +1,6 @@
 {
   "user": [
     {
-      "password": "123",
-      "userInfo": {
-        "name": "hhh",
-        "tel": "1111111111",
-        "birthday": "20231020"
-      },
-      "id": 1
-    },
-    {
       "password": "12",
       "userInfo": {
         "username": "hhh",
@@ -71,6 +62,24 @@
         "birthday": "20231020"
       },
       "id": 8
+    },
+    {
+      "password": "333",
+      "userInfo": {
+        "username": "YIHANG",
+        "tel": "1111111111",
+        "birthday": "20231021"
+      },
+      "id": 9
+    },
+    {
+      "password": "77",
+      "userInfo": {
+        "username": "Haomiao",
+        "tel": "1111111111",
+        "birthday": "20231021"
+      },
+      "id": 10
     }
   ]
 }

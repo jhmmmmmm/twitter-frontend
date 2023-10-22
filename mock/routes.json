@@ -1,4 +1,4 @@
 {
   "/api/accounts/signup": "/user",
-  "/api/login/:username/:password": "/user?username=:username&password=:password"
+  "/api/login/:username/:password": "/user?userInfo.username=:username&password=:password"
 }
