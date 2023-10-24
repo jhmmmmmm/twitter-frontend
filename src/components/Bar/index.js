@@ -5,6 +5,7 @@ import msgSvg from '@assets/msg.svg';
 import cycleSvg from '@assets/cycle.svg';
 import starSvg from '@assets/star.svg';
 import upSvg from '@assets/up.svg';
+import classNames from 'classnames';
 import style from './index.module.scss';
 
 const getBars = ({
@@ -38,7 +39,9 @@ const getBars = ({
 ];
 
 const Bar = ({
-  commentsCount, likesCount,
+  isBottom,
+  commentsCount,
+  likesCount,
 }) => {
   const [activeKey, setActiveKey] = useState();
 
@@ -47,7 +50,11 @@ const Bar = ({
   };
 
   return (
-    <div className={style.container}>
+    <div className={classNames({
+      [style.container]: !isBottom,
+      [style.containerBottom]: isBottom,
+    })}
+    >
       <TabBar activeKey={activeKey} onChange={onChangeTabItem}>
         {getBars({
           commentsCount, likesCount,
@@ -60,8 +67,13 @@ const Bar = ({
 };
 
 Bar.propTypes = {
+  isBottom: PropTypes.bool,
   commentsCount: PropTypes.number.isRequired,
   likesCount: PropTypes.number.isRequired,
+};
+
+Bar.defaultProps = {
+  isBottom: false,
 };
 
 export default Bar;
