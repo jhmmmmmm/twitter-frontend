@@ -13,7 +13,7 @@
 }
 
 .formContainer {
-  composes: formContainer from '../../index.scss';
+  composes: formContainer from '../../common.module.scss';
 }
 
 .gotoRegister {

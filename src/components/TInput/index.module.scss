@@ -1,7 +1,7 @@
-@import  '../../index.scss';
+@import  '../../common.module.scss';
 
 .tInput {
-  composes: input from '../../index.scss';
+  composes: input from '../../common.module.scss';
   position: relative;
 }
 
