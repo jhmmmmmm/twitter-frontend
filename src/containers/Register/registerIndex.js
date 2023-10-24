@@ -46,7 +46,6 @@ const Register = () => {
       return;
     }
     Toast.show('login failed');
-    console.log(res);
   };
 
   return (

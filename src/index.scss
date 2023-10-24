@@ -6,3 +6,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f5f7fa;
 }
+
+$tgray: #cfd9de;
+$tblue: #1d9bf0;
+$Gray: #868a8c;
+$tFont: #536471;
+
+.adm-text-area {
+  --placeholder-color: #536471 !important;
+}

@@ -19,6 +19,7 @@ function start() {
   const router = jsonServer.router('./mock/db.json');
   server.use(router);
 
+  // 返回自定义格式数据
   router.render = (req, res) => {
     res.jsonp({
       data: res.locals.data,
