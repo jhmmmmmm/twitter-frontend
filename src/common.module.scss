@@ -2,6 +2,7 @@ $tgray: #cfd9de;
 $tblue: #1d9bf0;
 $Gray: #868a8c;
 $tFont: #536471;
+$tBorder: #eee;
 
 .input {
   border: solid 1px $tgray;
@@ -35,4 +36,8 @@ $tFont: #536471;
   font-weight: 700;
   height: 68px;
   line-height: 68px;
+}
+
+.icon {
+  height: 20px;
 }

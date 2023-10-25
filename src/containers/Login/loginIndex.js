@@ -5,6 +5,7 @@ import TInput from '@components/TInput';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '@utils/context';
+import Cookies from 'js-cookie';
 import Footer from '../Register/components/Footer';
 import style from './index.module.scss';
 import { login } from '../../services/login';
@@ -39,10 +40,12 @@ const Login = () => {
     const values = await form.validateFields();
     if (values) {
       const res = await login(values.username, values.password);
+      console.log('res', res);
       if (res.success && res.data.length > 0) {
         Dialog.alert({
           content: 'login success',
         });
+        Cookies.set('userId', res.data[0].id);
         return;
       }
       Dialog.alert({

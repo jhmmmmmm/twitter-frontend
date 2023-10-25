@@ -1,4 +1,13 @@
+@import '../../common.module.scss';
+
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: solid 1px $tBorder;
   height: 50px;
   text-align: center;
 }
@@ -21,4 +30,12 @@
   position: absolute;
   top: 12px;
   left: 20px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 50px;
+  position: absolute;
+  left: 60px;
 }

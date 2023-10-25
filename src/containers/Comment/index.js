@@ -41,7 +41,6 @@ const defaultTweet = {
 
 const Comment = () => {
   const [store] = useAppContext();
-  console.log(store);
   const [data, setData] = useState(defaultTweet);
   useEffect(() => {
     setData(defaultTweet);

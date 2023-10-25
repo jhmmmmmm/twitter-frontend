@@ -7,17 +7,23 @@ const Header = () => {
   const [store] = useAppContext();
   const result = [];
   if (store.user) {
-    return (
+    result.push(
       <div className={style.backHeader}>
         <img src={store.user?.avatar_url} alt="" className={style.avatar} />
-      </div>
+      </div>,
     );
+    result.push(
+      <span className={style.title}>
+        {store.title}
+      </span>,
+    );
+  }
+  if (store.closeHeaderHandler) {
+    result.push(<CloseOutline className={style.closeIcon} onClick={store.closeHeaderHandler} />);
+    result.push(<img src={logo} alt="twitter-logo" className={style.twitterLogo} />);
   }
   return (
     <div className={style.header}>
-      {store.closeHeaderHandler
-      && (<CloseOutline className={style.closeIcon} onClick={store.closeHeaderHandler} />)}
-      <img src={logo} alt="twitter-logo" className={style.twitterLogo} />
       {result}
     </div>
   );

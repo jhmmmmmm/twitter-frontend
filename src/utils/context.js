@@ -12,6 +12,12 @@ export const AppContext = createContext();
 
 export const CxtProvider = ({ children }) => {
   const [store, setStore] = useState(defaultStore);
+  const update = (v) => {
+    setStore((st) => ({
+      ...st,
+      ...v,
+    }));
+  };
 
   useEffect(() => {
     // 创建一个异步函数
@@ -35,7 +41,7 @@ export const CxtProvider = ({ children }) => {
   }, []); // 仅在组件挂载时运行
 
   const value = useMemo(() => ({
-    store, setStore,
+    store, update,
   }), [store]);
 
   return (
@@ -52,5 +58,5 @@ CxtProvider.propTypes = {
 export const useAppContext = () => {
   const cxt = useContext(AppContext);
 
-  return [cxt.store, cxt.setStore];
+  return [cxt.store, cxt.update];
 };
