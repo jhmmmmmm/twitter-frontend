@@ -56,9 +56,8 @@ const tweet = {
 };
 
 const TweetCard = () => {
-  const [data, setData] = useState();
+  const [, setData] = useState();
   useEffect(() => {
-    console.log('data', data);
     setData([]);
   }, []);
   return (
@@ -86,29 +85,8 @@ const TweetCard = () => {
             likesCount={tweet.likes_count}
           />
         </div>
-        <div className={style.photo}>
-          <ImageCard
-            imgs={tweet.photo_urls}
-            commentsCount={tweet.comments_count}
-            likesCount={tweet.likes_count}
-          />
-        </div>
-        <div className={style.photo}>
-          <ImageCard
-            imgs={tweet.photo_urls}
-            commentsCount={tweet.comments_count}
-            likesCount={tweet.likes_count}
-          />
-        </div>
-        <div className={style.photo}>
-          <ImageCard
-            imgs={tweet.photo_urls}
-            commentsCount={tweet.comments_count}
-            likesCount={tweet.likes_count}
-          />
-        </div>
         <div className={style.bar}>
-          <Bar commentsCount={tweet.comments_count} likesCount={tweet.likes_count} />
+          <Bar id={tweet.id} commentsCount={tweet.comments_count} likesCount={tweet.likes_count} />
         </div>
       </div>
     </div>
