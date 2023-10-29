@@ -8,6 +8,7 @@ import App from '@containers/App';
 import { CxtProvider } from '@utils/context';
 import Tweets from '@containers/Tweets';
 import Comment from '@containers/Comment';
+import CreateTweet from '@containers/CreateTweet';
 // import { startVconsole } from './utils';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,6 +25,7 @@ root.render(
             <Route path="search" element={<Comment />} />
             <Route path="message" element={<Comment />} />
             <Route path="tip" element={<Comment />} />
+            <Route path="createTweet" element={<CreateTweet />} />
           </Route>
         </Routes>
       </BrowserRouter>

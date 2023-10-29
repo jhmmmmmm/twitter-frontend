@@ -40,7 +40,6 @@ const Login = () => {
     const values = await form.validateFields();
     if (values) {
       const res = await login(values.username, values.password);
-      console.log('res', res);
       if (res.success && res.data.length > 0) {
         Dialog.alert({
           content: 'login success',

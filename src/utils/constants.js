@@ -39,6 +39,12 @@ export const menus = [
     link: '/comment',
     hideHeader: true,
   },
+  {
+    key: 'createTweet',
+    title: 'Tweet',
+    link: '/createTweet',
+    hideHeader: true,
+  },
 ];
 
 export const getMenuByKey = (key) => menus.find((item) => item.key === key);

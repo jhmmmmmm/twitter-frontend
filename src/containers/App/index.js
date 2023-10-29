@@ -7,6 +7,7 @@ import { getUser } from '@services/login';
 import { useEffect } from 'react';
 import { Toast } from 'antd-mobile';
 import { useCurMenu } from '@utils/hooks';
+import CreateButton from '@components/CreateButton';
 import style from './index.module.scss';
 
 const App = () => {
@@ -37,11 +38,17 @@ const App = () => {
     };
     init();
   }, []);
+
+  const onClickCreateTweet = () => {
+    nav('/createTweet');
+  };
+
   return (
     <div className={style.container}>
       {!menu.hideHeader && <Header />}
       <Outlet />
       <Bottom />
+      {!menu.hideHeader && <CreateButton onClick={onClickCreateTweet} />}
     </div>
   );
 };
