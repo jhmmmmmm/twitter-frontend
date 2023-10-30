@@ -3,14 +3,21 @@ import messageSvg from '@assets/message.svg';
 import tipSvg from '@assets/tip.svg';
 import searchSvg from '@assets/search.svg';
 
+import { matchPath } from 'react-router-dom';
 import style from '../common.module.scss';
 
 export const menus = [
   {
+    key: 'tweet',
+    title: 'Tweet',
+    link: '/tweet/:id',
+    hideHeader: true,
+  },
+  {
     key: 'Home',
     icon: <img className={style.icon} src={homeSvg} alt="" />,
     title: 'Homepage',
-    link: '/tweets',
+    link: '/',
     isMenu: true,
   },
   {
@@ -35,13 +42,11 @@ export const menus = [
   },
   {
     key: 'comment',
-    title: 'Comment',
-    link: '/comment',
+    link: '/comment/:id',
     hideHeader: true,
   },
   {
     key: 'createTweet',
-    title: 'Tweet',
     link: '/createTweet',
     hideHeader: true,
   },
@@ -49,6 +54,6 @@ export const menus = [
 
 export const getMenuByKey = (key) => menus.find((item) => item.key === key);
 
-export const getMenuByLink = (link) => menus.find((item) => link.indexOf(item.link) > -1);
+export const getMenuByLink = (link) => menus.find((item) => matchPath(item.link, link));
 
 export const includeMenu = (link) => menus.some((item) => item.link === link);
