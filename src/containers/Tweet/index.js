@@ -4,6 +4,8 @@ import Bar from '@components/Bar';
 import moment from 'moment';
 import { useState, useEffect } from 'react';
 
+import { OBJECT_KEYS } from '@components/Bar/constants';
+import CommentCard from '@components/CommentCard';
 import style from './index.module.scss';
 
 const tweet = {
@@ -90,7 +92,7 @@ const Tweet = () => {
         </div>
 
         <div className={style.time}>
-          {moment(data.created_at).format('A h:m · YYYY年M月D日')}
+          {moment(data.created_at).format('A h:m · YYYY-MM-DD')}
         &nbsp;· Twitter for iPhone
         </div>
         <div className={style.bar}>
@@ -98,9 +100,11 @@ const Tweet = () => {
             id={data.id}
             likesCount={data.likes_count}
             commentsCount={data.comments_count}
+            type={OBJECT_KEYS.TWEET}
           />
         </div>
       </div>
+      {data.comments.map((item) => (<CommentCard key={item.id} data={item} />))}
     </div>
   );
 };

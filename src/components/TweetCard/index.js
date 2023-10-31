@@ -3,6 +3,7 @@ import moment from 'moment';
 import ImageCard from '@components/ImageCard';
 import Bar from '@components/Bar';
 import { useGoTo } from '@utils/hooks';
+import { OBJECT_KEYS } from '@components/Bar/constants';
 import style from './index.module.scss';
 
 const tweet = {
@@ -88,7 +89,12 @@ const TweetCard = () => {
           />
         </div>
         <div className={style.bar}>
-          <Bar id={tweet.id} commentsCount={tweet.comments_count} likesCount={tweet.likes_count} />
+          <Bar
+            id={tweet.id}
+            commentsCount={tweet.comments_count}
+            likesCount={tweet.likes_count}
+            type={OBJECT_KEYS.TWEET}
+          />
         </div>
       </div>
     </div>
