@@ -27,7 +27,7 @@ const Bar = ({
   const onChangeTabItem = (key) => {
     setActiveKey(key);
     if (key === BAR_KEYS.CYCLE) {
-      Toast.show('转发成功');
+      Toast.show('Retweet success');
     }
     if (key === BAR_KEYS.UP) {
       setVisible(true);
@@ -36,27 +36,27 @@ const Bar = ({
       if (liked) {
         cancelLike({
           content_type: type,
-          object_id: id, // 点赞的对象的id
+          object_id: id,
         }).then((res) => {
           if (res.success) {
-            Toast.show('取消点赞成功');
+            Toast.show('Cancel like success');
             setLiked(false);
             return;
           }
-          Toast.show('取消点赞失败');
+          Toast.show('Cancel like failed');
         });
         return;
       }
       likes({
         content_type: type,
-        object_id: id, // 点赞的对象的id
+        object_id: id,
       }).then((res) => {
         if (res.success) {
-          Toast.show('点赞成功');
+          Toast.show('Like success');
           setLiked(true);
           return;
         }
-        Toast.show('点赞失败');
+        Toast.show('Like failed');
       });
     }
   };
