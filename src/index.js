@@ -11,6 +11,7 @@ import Comment from '@containers/Comment';
 import CreateTweet from '@containers/CreateTweet';
 import Tweet from '@containers/Tweet';
 import My from '@containers/My';
+import EditUser from '@containers/EditUser';
 // import { startVconsole } from './utils';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -29,6 +30,7 @@ root.render(
           <Route path="createTweet" element={<CreateTweet />} />
           <Route path="tweet/:id" element={<Tweet />} />
           <Route path="my" element={<My />} />
+          <Route path="editUser" element={<EditUser />} />
         </Route>
       </Routes>
     </BrowserRouter>

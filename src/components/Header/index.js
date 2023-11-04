@@ -4,6 +4,7 @@ import { useCurMenu, useGoTo } from '@utils/hooks';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import MyPopup from '@components/MyPopup';
+import Avatar from '@components/Avatar';
 import logo from '../../assets/x-twitter.svg';
 import style from './index.module.scss';
 
@@ -36,17 +37,24 @@ const Header = ({
         </div>,
       );
     } else {
+      result.push(<MyPopup
+        key="myPopup"
+        visible={visible}
+        onClose={() => setVisible(false)}
+      />);
       result.push(
-        <MyPopup key="myPopUp" visible={visible} onClose={() => setVisible(false)} />,
-      );
-      result.push(
-        <div key="avatarUrl" className={style.backHeader} onClick={() => setVisible(true)}>
-          <img src={store.user?.avatar_url} alt="" className={style.avatar} />
-        </div>,
+        <Avatar
+          className={style.backHeader}
+          key="avatarUrl"
+          avatarUrl={store.user?.avatar_url}
+          onClick={
+          () => setVisible(true)
+          }
+        />,
       );
       result.push(
         <span key="title" className={style.title}>
-          {store.title}
+          {menu.title}
         </span>,
       );
     }

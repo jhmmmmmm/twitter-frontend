@@ -8,3 +8,7 @@ export const getFeeds = () => get('/api/newsfeeds').then((res) => {
   }
   return [];
 });
+
+export const getTweets = (id) => get('/api/tweets', {
+  user_id: id,
+});

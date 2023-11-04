@@ -55,6 +55,12 @@ export const menus = [
     link: '/my',
     hideHeader: true,
   },
+  {
+    key: 'editUser',
+    title: 'Edit personal information',
+    link: '/editUser',
+    hideHeader: true,
+  },
 ];
 
 export const getMenuByKey = (key) => menus.find((item) => item.key === key);

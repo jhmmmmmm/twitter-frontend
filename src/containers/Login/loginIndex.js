@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppContext } from '@utils/context';
 import Cookies from 'js-cookie';
+import { useGoTo } from '@utils/hooks';
 import Footer from '../Register/components/Footer';
 import style from './index.module.scss';
 import { login } from '../../services/login';
@@ -13,6 +14,7 @@ import { login } from '../../services/login';
 const Login = () => {
   const [form] = Form.useForm();
   const [nextDisabled, setNextDisabled] = useState(true);
+  const go = useGoTo();
 
   const [, setStore] = useAppContext();
   useEffect(() => {
@@ -45,6 +47,7 @@ const Login = () => {
           content: 'login success',
         });
         Cookies.set('userId', res.data[0].id);
+        go('tweets');
         return;
       }
       Dialog.alert({

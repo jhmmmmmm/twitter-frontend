@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 import { useAppContext } from '@utils/context';
 import { useGoTo } from '@utils/hooks';
-// import Avatar from '@components/Avatar';
 import Cookies from 'js-cookie';
+import Avatar from '@components/Avatar';
 import style from './index.module.scss';
 
 const MyPopup = ({
@@ -32,7 +32,7 @@ const MyPopup = ({
     >
       <div className={style.container}>
         <div className={style.title}>Account Info</div>
-        {/* <Avatar avatarUrl={store.user.avatar_url} className={style.avatar} /> */}
+        <Avatar avatarUrl={store.user.avatar_url} className={style.avatar} />
         <div className={style.nickname}>
           {store.user?.nickname || 'not known'}
         </div>

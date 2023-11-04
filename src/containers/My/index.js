@@ -1,26 +1,26 @@
-// import TweetCard from '@components/TweetCard';
-// import { getTweets } from '@services/tweet';
+import TweetCard from '@components/TweetCard';
+import { getTweets } from '@services/tweet';
 import { useAppContext } from '@utils/context';
 import { useGoTo } from '@utils/hooks';
 import { Button } from 'antd-mobile';
 import { Tabs } from 'antd-mobile/es/components/tabs/tabs';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from '@components/Header';
 import style from './index.module.scss';
 
 const My = () => {
   const [store] = useAppContext();
-  // const [data, setDate] = useState([]);
+  const [data, setDate] = useState([]);
   const go = useGoTo();
 
-  // useEffect(() => {
-  //   const init = async () => {
-  //     const res = await getTweets();
-  //     setDate(res.data);
-  //   };
-  //   init();
-  // }, []);
+  useEffect(() => {
+    const init = async () => {
+      const res = await getTweets();
+      setDate(res.data);
+    };
+    init();
+  }, []);
   return (
     <div className={style.container}>
       <Header title={store.user?.nickname || 'not known'} />
@@ -51,7 +51,7 @@ const My = () => {
       </div>
       <Tabs>
         <Tabs.Tab title="Tweets" key="tweet">
-          {/* {data.map((item) => <TweetCard key={item.id} dataSource={item} />)} */}
+          {data.map((item) => <TweetCard key={item.id} dataSource={item} />)}
         </Tabs.Tab>
       </Tabs>
     </div>
