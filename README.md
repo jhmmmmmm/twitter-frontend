@@ -1,22 +1,11 @@
-# Twitter-fronted version
+# Twitter-fronted project
 a twitter based front end project
 
 ## how to start
-npm start
+download and npm start
 
 ## how to visit
-https://localhost:3000/
-
-## how to send the api request
-request: get post put patch delete
-service: const getUser = () = > get('/user', parameters).then((res) => {
-  return res;
-});
+http://localhost:3000/
 
 ## web service in backend
-json-server
-
-
-## config info
-- craco.config.js: config webpack
-- jsconfig.json: js related config file for vscode
+json-server (a fake backend)
