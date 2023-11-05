@@ -6,7 +6,6 @@ import { Button } from 'antd-mobile';
 import { Tabs } from 'antd-mobile/es/components/tabs/tabs';
 import { useState, useEffect } from 'react';
 
-import Header from '@components/Header';
 import style from './index.module.scss';
 
 const My = () => {
@@ -23,7 +22,6 @@ const My = () => {
   }, []);
   return (
     <div className={style.container}>
-      <Header title={store.user?.nickname || 'not known'} />
       <div className={style.header} />
       <img className={style.avatar} src={store.user?.avatar_url} alt="" />
       <Button

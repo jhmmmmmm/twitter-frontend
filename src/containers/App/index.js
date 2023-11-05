@@ -50,8 +50,8 @@ const App = () => {
     <div className={style.container}>
       {!menu.hideHeader && <Header />}
       <Outlet />
-      <Bottom />
-      {!menu.hideHeader && <CreateButton onClick={onClickCreateTweet} />}
+      {!menu.hideBottom && <Bottom />}
+      {!menu.hideBottom && !menu.hideHeader && <CreateButton onClick={onClickCreateTweet} />}
     </div>
   );
 };

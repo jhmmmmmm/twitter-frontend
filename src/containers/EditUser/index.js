@@ -10,9 +10,6 @@ import { fileByBase64 } from '@utils/';
 import { editUser } from '@services/user';
 import style from './index.module.scss';
 
-/**
-*
-*/
 const EditUser = () => {
   const [nickname, setNickname] = useState('');
   const [avatar, setAvatar] = useState('');

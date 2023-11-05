@@ -1,12 +1,18 @@
-import homeSvg from '@assets/home.svg';
-import messageSvg from '@assets/message.svg';
-import tipSvg from '@assets/tip.svg';
-import searchSvg from '@assets/search.svg';
+import { UnorderedListOutline, UserCircleOutline } from 'antd-mobile-icons';
 
 import { matchPath } from 'react-router-dom';
-import style from '../common.module.scss';
 
 export const menus = [
+  {
+    key: 'login',
+    link: '/login',
+    hideBottom: true,
+  },
+  {
+    key: 'register',
+    link: '/register',
+    hideBottom: true,
+  },
   {
     key: 'tweet',
     title: 'Tweet',
@@ -15,29 +21,16 @@ export const menus = [
   },
   {
     key: 'Home',
-    icon: <img className={style.icon} src={homeSvg} alt="" />,
+    icon: <UnorderedListOutline />,
     title: 'Homepage',
     link: '/',
     isMenu: true,
   },
   {
-    key: 'Search',
-    icon: <img className={style.icon} src={searchSvg} alt="" />,
-    link: '/search',
-    isMenu: true,
-  },
-  {
-    key: 'Tip',
-    icon: <img className={style.icon} src={tipSvg} alt="" />,
-    title: 'Notice',
-    link: '/tip',
-    isMenu: true,
-  },
-  {
-    key: 'Message',
-    icon: <img className={style.icon} src={messageSvg} alt="" />,
-    title: 'Message',
-    link: '/message',
+    key: 'Profile',
+    title: 'Profile',
+    icon: <UserCircleOutline />,
+    link: '/my',
     isMenu: true,
   },
   {

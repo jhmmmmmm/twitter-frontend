@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Image, ImageViewer } from 'antd-mobile';
 import classNames from 'classnames';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Bar from '@components/Bar';
 import { OBJECT_KEYS } from '@components/Bar/constants';
 import style from './index.module.scss';
@@ -13,6 +13,16 @@ const ImageCard = ({
 }) => {
   const imageViewRef = useRef();
   const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [visible]);
   const getWrapper = () => {
     switch (imgs.length) {
       case 1:
@@ -39,6 +49,7 @@ const ImageCard = ({
         {imgs.map((img, index) => (<Image onClick={() => onClickImage(index)} fit="cover" className={classNames(style.img, `img${index}`)} key={classNames(img, index)} src={img} alt="" />))}
       </div>
       <ImageViewer.Multi
+        getContainer={document.body}
         ref={imageViewRef}
         images={imgs}
         visible={visible}

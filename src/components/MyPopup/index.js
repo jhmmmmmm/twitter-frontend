@@ -49,7 +49,7 @@ const MyPopup = ({
         <div className={style.listItem} onClick={handleToMy}>
           <UserOutline />
           <span className={style.info}>
-            Personal
+            Profile
           </span>
         </div>
         <div className={style.footer} onClick={handleLogout}>
