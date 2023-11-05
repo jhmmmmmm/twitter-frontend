@@ -1,0 +1,17 @@
+@import '../../common.module.scss';
+
+.imageUpload {
+  fill: $tblue;
+}
+.imageButton {
+  width: 20px;
+  height: 20px;
+}
+
+.upFile {
+  opacity: 0%;
+  position: absolute;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}

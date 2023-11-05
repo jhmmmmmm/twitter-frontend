@@ -1,11 +1,59 @@
+import Bottom from '@components/Bottom';
 import Header from '@components/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useAppContext } from '@utils/context';
+import Cookies from 'js-cookie';
+import { getUser } from '@services/login';
+import { useEffect } from 'react';
+import { Toast } from 'antd-mobile';
+import { useCurMenu } from '@utils/hooks';
+import CreateButton from '@components/CreateButton';
+import style from './index.module.scss';
 
-const App = () => (
-  <>
-    <Header />
-    <Outlet />
-  </>
-);
+const App = () => {
+  const [store, setStore] = useAppContext();
+  const nav = useNavigate();
+  const location = useLocation();
+  const menu = useCurMenu();
+
+  useEffect(() => {
+    const init = async () => {
+      const userId = Cookies.get('userId');
+      if (!userId) {
+        Toast.show('Please login again');
+        nav('/login');
+        return;
+      }
+      if (store.user) {
+        return;
+      }
+      const res = await getUser(userId);
+      if (res.data) {
+        setStore({
+          user: res.data,
+        });
+        if (location.pathname === '/login') {
+          nav('/tweets');
+        }
+        return;
+      }
+      nav('/login');
+    };
+    init();
+  }, [location.pathname]);
+
+  const onClickCreateTweet = () => {
+    nav('/createTweet');
+  };
+
+  return (
+    <div className={style.container}>
+      {!menu.hideHeader && <Header />}
+      <Outlet />
+      {!menu.hideBottom && <Bottom />}
+      {!menu.hideBottom && !menu.hideHeader && <CreateButton onClick={onClickCreateTweet} />}
+    </div>
+  );
+};
 
 export default App;

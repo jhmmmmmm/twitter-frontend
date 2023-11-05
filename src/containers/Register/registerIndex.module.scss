@@ -5,11 +5,11 @@
 }
 
 .formTitle {
-  composes: formTitle from "../../common.module.scss";
+  composes: formTitle from "../../index.scss";
 }
 
 .input {
-  composes: input from '../../common.module.scss';
+  composes: input from '../../index.scss';
 }
 
 .changeTypeButton {
@@ -25,7 +25,7 @@
 }
 
 .formContainer {
-  composes: formContainer from '../../common.module.scss';
+  composes: formContainer from '../../index.scss';
 }
 
 .footer{

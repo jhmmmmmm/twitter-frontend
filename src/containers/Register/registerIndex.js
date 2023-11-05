@@ -39,14 +39,13 @@ const Register = () => {
   const confirmRegisterHandler = async (password) => {
     const res = await registeUser({
       password,
-      userInfo,
+      ...userInfo,
     });
     if (res.success) {
       Toast.show('login success');
       return;
     }
     Toast.show('login failed');
-    console.log(res);
   };
 
   return (
@@ -58,6 +57,7 @@ const Register = () => {
       <Show visible={step === STEP.TWO} isMount>
         <SecondStep
           userInfo={userInfo}
+          goToOneStepHandler={() => setStep(STEP.ONE)}
           confirmRegisterHandler={confirmRegisterHandler}
         />
       </Show>
